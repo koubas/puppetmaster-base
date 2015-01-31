@@ -8,11 +8,11 @@ SOCKET=$(ls -1 --sort t /tmp/ssh-*/agent.* | head -1)
 export SSH_AUTH_SOCK="${SOCKET}"
 
 if ! which puppet >/dev/null; then
-  echo Installing Puppet repositories...
-  wget https://apt.puppetlabs.com/puppetlabs-release-wheezy.deb -O /tmp/puppetlabs-release-wheezy.de
+  echo Installing Puppet and friends...
+  wget https://apt.puppetlabs.com/puppetlabs-release-wheezy.deb -O /tmp/puppetlabs-release-wheezy.deb -q
   dpkg -i /tmp/puppetlabs-release-wheezy.deb
   apt-get update
-  apt-get install puppet -y
+  apt-get install puppet ruby-dev -y
 fi
 
 # Install librarian
@@ -23,7 +23,7 @@ fi
 
 # Install puppet modules
 echo "Installing puppet modules..."
-cd $VAGRANT_ROOT/.puppet
+cd /vagrant/vagrant-puppet
 librarian-puppet install
 
 echo "Updating APT repositories..."
