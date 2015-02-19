@@ -1,2 +1,2 @@
 # puppetmaster-base
-Puppetmaster base roles, profiles and dev environement
+Puppetmaster base roles, profiles and dev environment
