@@ -25,5 +25,3 @@ fi
 echo "Installing puppet modules..."
 cd /vagrant/vagrant-puppet
 librarian-puppet install
-
-echo "Updating APT repositories..."
